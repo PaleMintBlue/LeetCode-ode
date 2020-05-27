@@ -14,35 +14,35 @@
  * }
  */
 class Solution {
-    // public List<Integer> inorderTraversal(TreeNode root) {
-    //     List<Integer> res = new ArrayList<>();
-    //     recursive(root, res);
-    //     return res;
-    // }
-    // public void recursive(TreeNode node, List<Integer> res) {
-    //     if(node == null) return;
-    //     recursive(node.left, res);
-    //     res.add(node.val);
-    //     recursive(node.right, res);
-    // }
-    
-    // public List<Integer> inorderTraversal(TreeNode root) {
-    //     List<Integer> res = new ArrayList<>();
-    //     Deque<TreeNode> stack = new ArrayDeque<>();
-    //     TreeNode curr = root;
-    //     while(curr != null || !stack.isEmpty()) {
-    //         while (curr != null) {
-    //             stack.addFirst(curr);
-    //             curr = curr.left;
-    //         }
-    //         curr = stack.removeFirst();
-    //         res.add(curr.val);
-    //         curr = curr.right;
-    //     }
-    //     return res;
-    // }
-    
     public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        recursive(root, res);
+        return res;
+    }
+    public void recursive(TreeNode node, List<Integer> res) {
+        if(node == null) return;
+        recursive(node.left, res);
+        res.add(node.val);
+        recursive(node.right, res);
+    }
+    
+    public List<Integer> iterate(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        TreeNode curr = root;
+        while(curr != null || !stack.isEmpty()) {
+            while (curr != null) {
+                stack.addFirst(curr);
+                curr = curr.left;
+            }
+            curr = stack.removeFirst();
+            res.add(curr.val);
+            curr = curr.right;
+        }
+        return res;
+    }
+    
+    public List<Integer> morris(TreeNode root) {
         List<Integer> res = new ArrayList<>();
         TreeNode curr = root, prev = null;
         while(curr != null) {
