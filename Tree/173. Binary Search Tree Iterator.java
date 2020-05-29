@@ -13,6 +13,10 @@
  *     }
  * }
  */
+
+/**
+* Using Stack
+*/
 class BSTIterator {
     
     Deque<TreeNode> stack;
@@ -39,6 +43,52 @@ class BSTIterator {
     /** @return whether we have a next smallest number */
     public boolean hasNext() {
         return (this.stack.size() > 0);
+    }
+}
+
+/**
+* In-place
+*/
+class BSTIterator {
+
+    private TreeNode root;
+    private boolean flag;
+
+    public BSTIterator(TreeNode root) {
+        this.root = root;
+        this.flag = (root==null)?false:true;
+    }
+
+    /** @return the next smallest number */
+    public int next() {
+        return nextHelper(root, root);
+    }
+
+    private int nextHelper(TreeNode curr, TreeNode node) {
+        // a node without a left child is the smallest one -> O(h)
+        while (node.left != null) {
+            curr = node;
+            node = node.left;
+        }
+
+        int smallest = node.val;
+
+        // remove the smallest node
+        if (node.right != null) {
+            node.val = node.right.val;
+            node.left = node.right.left;
+            node.right = node.right.right;
+        }
+        else {
+            if (curr == node) flag = false;
+            curr.left = null;
+        }
+        return smallest;
+    }
+
+    /** @return whether we have a next smallest number */
+    public boolean hasNext() {
+        return flag;
     }
 }
 
