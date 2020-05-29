@@ -41,4 +41,29 @@ class Solution {
         }
         return res;
     }
+    
+    public List<Integer> morris(TreeNode root) {
+        List<Integer> res = new ArrayList<Integer>();
+        TreeNode prev = null;
+        while (root != null) {
+            if (root.left == null) {
+                res.add(root.val);
+                root = root.right;
+            } else {
+                prev = root.left;
+                while (prev.right != null && prev.right != root){
+                    prev = prev.right;
+                }
+                if (prev.right == null) {
+                    prev.right = root;
+                    res.add(root.val);
+                    root = root.left;
+                } else {
+                    prev.right = null;
+                    root = root.right;
+                }
+            }
+        }
+        return res;
+    }
 }
