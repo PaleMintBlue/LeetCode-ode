@@ -18,7 +18,7 @@ class Solution {
     /** Recursive
     */
     List<List<Integer>> levels = new ArrayList<List<Integer>>();
-    private void helper(TreeNode root) {
+    private void helper(TreeNode node, int level) {
         if (levels.size() == level) levels.add(new ArrayList<Integer>());
 
         levels.get(level).add(node.val);
