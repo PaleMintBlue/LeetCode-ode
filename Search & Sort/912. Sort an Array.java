@@ -1,6 +1,17 @@
+/** Stable
+A sorting algorithm is said to be stable if two objects with equal keys appear in the same order in sorted output as they appear in the input array to be sorted. 
+Stable: Merge, Insertion, Bubble
+Unstable: Quick, Heap, Selection
+*/
+
 class Solution {
 
     /** Quick-Sort
+    
+    Worst Case: O(n^2). when the picked pivot is always an extreme (smallest or largest) element. 
+    This happens when input array is sorted or reverse sorted and either first or last element is picked as pivot.
+    
+    Solution: random / mid -> pivot
     */
     public int[] sortArray(int[] nums) {
         sort(nums, 0, nums.length - 1);
