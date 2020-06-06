@@ -2,7 +2,7 @@ class Solution {
      /** Quick Select
      */
     public int findKthLargest(int[] nums, int k) {
-        return order(nums, 0, nums.length-1, nums.length+1-k);
+        return quickSort(nums, 0, nums.length-1, nums.length+1-k);
     }
     
     private int quickSort(int[] nums, int left, int right, int k) {
