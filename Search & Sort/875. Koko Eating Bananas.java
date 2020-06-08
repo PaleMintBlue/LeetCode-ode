@@ -4,8 +4,8 @@ class Solution {
         int right = (int) Math.pow(10,9);
         while (left < right) {
             int mid = (left + right) / 2;
-            if (!possible(piles, H, mid)) left = mi + 1;
-            else right = mi;
+            if (!possible(piles, H, mid)) left = mid + 1;
+            else right = mid;
         }
         return left;
     }
