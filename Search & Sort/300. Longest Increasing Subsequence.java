@@ -11,6 +11,10 @@ class Solution {
         return len;
     }
     
+    /** Arrays.binarySearch()
+    * https://blog.csdn.net/cxhply/article/details/49423501
+    * better for large input
+    */
     private int biSearch(int[] arr, int lo, int hi, int k) {
         if (arr.length == 0) return -1;
         hi = hi - 1;
