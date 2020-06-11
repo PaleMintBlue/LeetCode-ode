@@ -50,7 +50,7 @@ class Solution {
      
     /** Union-Find
     * ref: https://blog.csdn.net/guoziqing506/article/details/78752557
-    * T: O(log(n^3)), S: O(1)
+    * T: O(log(n^3)), S: O(n)
     */
     class UF {
         private int[] parent, size;
