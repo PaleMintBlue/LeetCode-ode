@@ -1,6 +1,6 @@
 class Solution {
      /** DFS
-     * T: log(n^2), S: log(n)
+     * T: O(n^2) , S: O(n)
      */
      public int findCircleNum(int[][] M) {
         int[] visited = new int[M.length];
@@ -24,7 +24,7 @@ class Solution {
     }
      
      /** BFS
-     * T: log(n^2), S: log(n)
+     * T: O(n^2) , S: O(n)
      */
     public int findCircleNum(int[][] M) {
         int[] visited = new int[M.length];
@@ -50,7 +50,7 @@ class Solution {
      
     /** Union-Find
     * ref: https://blog.csdn.net/guoziqing506/article/details/78752557
-    * T: O(log(n^3)), S: O(n)
+    * T: O(n^3), S: O(n)
     */
     class UF {
         private int[] parent, size;
