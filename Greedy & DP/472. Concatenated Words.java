@@ -18,3 +18,7 @@ public class Solution {
         return false;
     }
 }
+
+/** Follow-up
+* consider word.length when substring
+**/
